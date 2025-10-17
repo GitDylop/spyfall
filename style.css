@@ -1,0 +1,24 @@
+html[theme="dark"] {
+    --base: hsl(0, 0%, 0%);
+    --secondary: hsl(0, 0%, 20%);
+    --text: hsl(0, 0%, 80%);
+}
+
+html[theme="light"] {
+    --base: hsl(0, 0%, 100%);
+    --secondary: hsl(0, 0%, 90%);
+    --text: hsl(210, 10%, 20%);
+}
+
+* {
+    background-color: var(--base);
+    color: var(--text);
+}
+
+button {
+    background-color: var(--secondary);
+    border: none;
+    padding: 10px 20px;
+    height: 50px;
+    border-radius: 50px;
+}
