@@ -1,24 +1,89 @@
+* {
+    box-sizing: border-box;
+    background-color: var(--base);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
 html[theme="dark"] {
     --base: hsl(0, 0%, 0%);
+    --primary: hsl(0, 0%, 10%);
     --secondary: hsl(0, 0%, 20%);
     --text: hsl(0, 0%, 80%);
+    --action: hsl(120, 100%, 20%);
+    --danger: hsl(0, 100%, 20%);
 }
 
 html[theme="light"] {
     --base: hsl(0, 0%, 100%);
-    --secondary: hsl(0, 0%, 90%);
+    --primary: hsl(0, 0%, 90%);
+    --secondary: hsl(0, 0%, 80%);
     --text: hsl(210, 10%, 20%);
+    --action: hsl(120, 50%, 60%);
+    --danger: hsl(0, 100%, 70%);
 }
 
-* {
-    background-color: var(--base);
+body {
+    padding: 20px;
+}
+
+.remove-player {
+    color: var(--base);
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: var(--danger);
+    border-radius: 10px;
+}
+
+.remove-player:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+#player-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    background-color: var(--primary);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.player-list-item {
+    display: flex;
+    height: 50px;
+    background-color: var(--primary);
+}
+
+.player-list-item input, button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary);
     color: var(--text);
 }
 
 button {
+    margin: 15px 0px;
     background-color: var(--secondary);
-    border: none;
-    padding: 10px 20px;
-    height: 50px;
-    border-radius: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+#start-button {
+    background-color: var(--action);
+}
+
+#start-button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
 }
