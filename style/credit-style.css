@@ -1,0 +1,15 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0px;
+    border-radius: 20px;
+}

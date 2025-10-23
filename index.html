@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" theme="dark">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Šnipas</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <script src="script.js"></script>
+<html lang="en" theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Šnipas</title>
+  <link rel="stylesheet" href="style/main-style.css">
+  <link rel="stylesheet" href="style/menu-style.css">
+</head>
+<body>
+  <div id="content">
+    <h1>Šnipas</h1><br>
+    <a href="newgame.html" id="mainmenu-start-btn">ŽAISTI</a>
+    <p id="creators">Sukūrė:<br>JGK <img src="src/images/info.svg" onclick="toggle_popup(true)"></p>
 
-    <div id="player-list">
-      <button id="add-player-button" onclick="add_player()">Pridėti žaidėją</button>
+    <div id="credits-popup">
+      <img id="close-button" src="src/images/close.svg" onclick="toggle_popup(false)">
+      <iframe src="credits.html" frameborder="0"></iframe>
     </div>
-
-    <button id="start-button">Pradėti</button>
-
-  </body>
+  </div>
+</body>
+<script src="script.js"></script>
 </html>

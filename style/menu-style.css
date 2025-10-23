@@ -1,0 +1,67 @@
+#mainmenu-start-btn {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--action);
+}
+
+#creators, #creators img {
+    margin-top: 20px;
+    color: var(--text);
+    opacity: 0.7;
+    height: 15px;
+    font-size: 20px;
+}
+
+
+#credits-popup {
+    opacity: 0;
+    margin-top: 50px;
+    z-index: 2;
+    pointer-events: none;
+    background: none;
+}
+
+@keyframes pop-in {
+    from {
+        margin-top: 50px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes pop-out {
+    from {
+        margin-top: 0px;
+        opacity: 1;
+    }
+
+    to {
+        margin-top: 50px;
+        opacity: 0;
+    }
+}
+
+iframe {
+    border: none;
+    border-radius: 12px;
+    max-width: 500px;
+    height: 400px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#close-button {
+    background: none;
+    width: 20px;
+    margin-right: 20px;
+    display: block;
+    margin-left: auto;
+    transform: translate(0, 40px);
+}

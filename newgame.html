@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naujas žaidimas - Šnipas</title>
+    <link rel="stylesheet" href="style/main-style.css">
+    <link rel="stylesheet" href="style/newgame-style.css">
+  </head>
+  <body>
+    <header>
+      <button style="flex: 1;" class="navigation-link" onclick="navigate_to('index.html', 'new-game')"><img src="src/images/left.svg"> Atgal</button>
+      <h3 style="flex: 2;" class="header-title">Naujas žaidimas</h3>
+      <div style="flex: 1;"></div>
+    </header>
+
+    <div id="content">
+      <div id="player-list">
+        <button id="add-player-button" onclick="add_player()">Pridėti žaidėją</button>
+      </div>
+
+      <button id="start-button">Pradėti</button>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
