@@ -25,3 +25,43 @@ function remove_player(element) {
         }
     }
 }
+
+// Pop-up langas
+function toggle_popup(active) {
+    const popup = document.getElementById('credits-popup');
+
+    popup.style.animation = 'none';
+    void popup.offsetWidth;
+
+    if (active) {
+        popup.style.pointerEvents = 'auto';
+        popup.style.animation = 'pop-in 300ms forwards';
+    } else {
+        popup.style.animation = 'pop-out 300ms forwards';
+
+        function handleEnd() {
+            popup.style.pointerEvents = 'none';
+            popup.removeEventListener('animationend', handleEnd);
+        }
+
+        popup.addEventListener('animationend', handleEnd);
+    }
+}
+
+// Puslapių navigacija
+function navigate_to(destination, page) {
+    if (page) {
+        switch (page) {
+            case 'new-game':
+                const players = document.querySelectorAll('.player-name');
+                if (players.length > 0) {
+                    if (!confirm('Ar tikrai norite išeiti?')) {
+                        return;
+                    }
+                }
+            case 'game':
+        }
+    }
+
+    window.location.href = destination;
+}

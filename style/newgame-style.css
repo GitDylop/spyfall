@@ -1,34 +1,3 @@
-* {
-    box-sizing: border-box;
-    background-color: var(--base);
-    color: var(--text);
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-
-html[theme="dark"] {
-    --base: hsl(0, 0%, 0%);
-    --primary: hsl(0, 0%, 10%);
-    --secondary: hsl(0, 0%, 20%);
-    --text: hsl(0, 0%, 80%);
-    --action: hsl(120, 100%, 20%);
-    --danger: hsl(0, 100%, 20%);
-}
-
-html[theme="light"] {
-    --base: hsl(0, 0%, 100%);
-    --primary: hsl(0, 0%, 90%);
-    --secondary: hsl(0, 0%, 80%);
-    --text: hsl(210, 10%, 20%);
-    --action: hsl(120, 50%, 60%);
-    --danger: hsl(0, 100%, 70%);
-}
-
-body {
-    padding: 20px;
-}
-
 .remove-player {
     color: var(--base);
     aspect-ratio: 1 / 1;
