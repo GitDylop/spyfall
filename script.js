@@ -71,22 +71,29 @@ function navigate_to(destination, page) {
 }
 
 const media = window.matchMedia('(prefers-color-scheme: dark)');
-const arrowImage = document.getElementById('navigation-link-image');
-
 let theme = media.matches ? 'dark' : 'light';
 document.documentElement.setAttribute('theme', theme);
 
+// Function to safely update arrow image filter
+function updateArrowFilter() {
+    const arrowImage = document.getElementById('navigation-link-image');
+    if (arrowImage) {
+        arrowImage.style.filter = theme === 'light' ? 'invert(0)' : 'invert(1)';
+    }
+}
+
+// Initial filter application
+updateArrowFilter();
+
+// Listen for system theme changes
 media.addEventListener('change', (e) => {
-  const newTheme = e.matches ? 'dark' : 'light';
-  theme = newTheme;
-  document.documentElement.setAttribute('theme', newTheme);
-  arrowImage.style.filter = theme == 'light' ? 'invert(0)' : 'invert(1)';
+    theme = e.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('theme', theme);
+    updateArrowFilter();
 });
 
-window.onload = function() {
-    document.documentElement.setAttribute('theme', theme);
-    arrowImage.style.filter = theme == 'light' ? 'invert(0)' : 'invert(1)';
-};
+// Apply filter again on load (in case DOM wasn't ready earlier)
+window.addEventListener('load', updateArrowFilter);
 
 
 // Žaidimo paruošimas
