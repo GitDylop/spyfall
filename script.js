@@ -70,11 +70,12 @@ function navigate_to(destination, page) {
     window.location.href = destination;
 }
 
+
+// Nustatyti temą
 const media = window.matchMedia('(prefers-color-scheme: dark)');
 let theme = media.matches ? 'dark' : 'light';
 document.documentElement.setAttribute('theme', theme);
 
-// Function to safely update arrow image filter
 function updateArrowFilter() {
     const arrowImage = document.getElementById('navigation-link-image');
     if (arrowImage) {
@@ -82,17 +83,14 @@ function updateArrowFilter() {
     }
 }
 
-// Initial filter application
 updateArrowFilter();
 
-// Listen for system theme changes
 media.addEventListener('change', (e) => {
     theme = e.matches ? 'dark' : 'light';
     document.documentElement.setAttribute('theme', theme);
     updateArrowFilter();
 });
 
-// Apply filter again on load (in case DOM wasn't ready earlier)
 window.addEventListener('load', updateArrowFilter);
 
 
