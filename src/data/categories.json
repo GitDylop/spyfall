@@ -1,0 +1,60 @@
+[
+    {
+        "name": "Kasdienybė",
+        "id": 1,
+
+        "content": {
+            "locations": [
+                "Kosminė stotis",
+                "Biuras",
+                "Mokykla",
+                "Sporto klubas",
+                "Kavinė",
+                "Viešbutis",
+                "Ligoninė",
+                "Parkas",
+                "Biblioteka",
+                "Prekybos centras",
+                "Kinas",
+                "Teatras",
+                "Restoranas",
+                "Stotis",
+                "Oro uostas",
+                "Įrašų studija",
+                "Tavo kambarys",
+                "Bankas",
+                "Paštas",
+                "Muziejus",
+                "Knygynas",
+                "Vaistinė",
+                "Grožio salonas",
+                "Automobilių servisas",
+                "Gyvūnų prieglauda"
+            ],
+
+            "objects": [
+                "Kompiuteris",
+                "Telefonas",
+                "Stalas",
+                "Kėdė",
+                "Knyga",
+                "Puodelis",
+                "Lempa",
+                "Paveikslas",
+                "Laikrodis",
+                "Kalendorius",
+                "Rašiklis",
+                "Užrašų knygelė",
+                "Kuprinė",
+                "Batai",
+                "Drabužiai",
+                "Raktai",
+                "Piniginė",
+                "Akiniai nuo saulės",
+                "Ausinės",
+                "Fotoaparatas",
+                "Žvakė"
+            ]
+        }
+    }
+]

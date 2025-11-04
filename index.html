@@ -13,9 +13,14 @@
     <a href="newgame.html" id="mainmenu-start-btn">ŽAISTI</a>
     <p id="creators">Sukūrė:<br>JGK <img src="src/images/info.svg" onclick="toggle_popup(true)"></p>
 
-    <div id="credits-popup">
-      <img id="close-button" src="src/images/close.svg" onclick="toggle_popup(false)">
-      <iframe src="credits.html" frameborder="0" scrolling="yes"></iframe>
+    <div id="overlay"></div>
+
+    <div id="credits-card">
+      <img id="credits-close" src="src/images/close.svg" onclick="toggle_popup(false)">
+      <h1>Sveiki!</h1>
+      <p>Mes esame Juozo Giriaus Kuopa, esame Vilniaus moksleiviai ateitininkai, visada laukiame naujų narių. <div class="htag">#JuozoGirniausKuopa #Penktadienis #17:30</div></p>
+      <img src="src/images/JGK.jpeg" id="jgk">
+      <p style="opacity: 0.5; font-size: 10px;">Svetainę kūrė Dovydas Plečkaitis <i>Dylop</i></p>
     </div>
   </div>
 </body>

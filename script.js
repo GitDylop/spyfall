@@ -28,40 +28,82 @@ function remove_player(element) {
 
 // Pop-up langas
 function toggle_popup(active) {
-    const popup = document.getElementById('credits-popup');
-
-    popup.style.animation = 'none';
-    void popup.offsetWidth;
+    const popup = document.getElementById('credits-card');
+    const overlay = document.getElementById('overlay');
 
     if (active) {
-        popup.style.pointerEvents = 'auto';
-        popup.style.animation = 'pop-in 300ms forwards';
+        overlay.style.display = 'block';
+        popup.style.display = 'flex';
     } else {
-        popup.style.animation = 'pop-out 300ms forwards';
-
-        function handleEnd() {
-            popup.style.pointerEvents = 'none';
-            popup.removeEventListener('animationend', handleEnd);
-        }
-
-        popup.addEventListener('animationend', handleEnd);
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
     }
 }
 
 // Puslapių navigacija
 function navigate_to(destination, page) {
+    const players = document.querySelectorAll('.player-name');
+
     if (page) {
         switch (page) {
             case 'new-game':
-                const players = document.querySelectorAll('.player-name');
                 if (players.length > 0) {
                     if (!confirm('Ar tikrai norite išeiti?')) {
                         return;
                     }
                 }
+                break;
+            case 'to-game':
+                if (players.length < 3) {
+                    alert('Žaidimui reikia bent 3 žaidėjų!');
+                    return;
+                }
+                break;
             case 'game':
+                if (!confirm('Ar tikrai norite išeiti iš žaidimo? Visi duomenys bus prarasti.')) {
+                    return;
+                }
+                break;
         }
     }
 
     window.location.href = destination;
+}
+
+const media = window.matchMedia('(prefers-color-scheme: dark)');
+const arrowImage = document.getElementById('navigation-link-image');
+
+let theme = media.matches ? 'dark' : 'light';
+document.documentElement.setAttribute('theme', theme);
+
+media.addEventListener('change', (e) => {
+  const newTheme = e.matches ? 'dark' : 'light';
+  theme = newTheme;
+  document.documentElement.setAttribute('theme', newTheme);
+  arrowImage.style.filter = theme == 'light' ? 'invert(0)' : 'invert(1)';
+});
+
+window.onload = function() {
+    document.documentElement.setAttribute('theme', theme);
+    arrowImage.style.filter = theme == 'light' ? 'invert(0)' : 'invert(1)';
+};
+
+
+// Žaidimo paruošimas
+function prepare_game() {
+    players = [];
+    const playerInputs = document.querySelectorAll('.player-name');
+
+    playerInputs.forEach(input => {
+        players.push({
+            name: input.value.trim(),
+            role: "normal"
+        });
+    });
+
+    const spyIndex = Math.floor(Math.random() * players.length);
+    players[spyIndex].role = "spy";
+
+    localStorage.setItem("game-data", JSON.stringify(players));
+    navigate_to('game.html', 'to-game');
 }

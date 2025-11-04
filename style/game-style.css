@@ -1,0 +1,92 @@
+.player {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    color: var(--text);
+    background-color: var(--secondary);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.player.unchecked {
+    background-color: var(--action);
+}
+
+.player:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+#player-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    background-color: var(--primary);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.player-list-item {
+    display: flex;
+    height: 50px;
+    background-color: var(--primary);
+}
+
+.player-list-item input, button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+button {
+    margin: 15px 0px;
+    background-color: var(--secondary);
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+#start-button {
+    background-color: var(--action);
+}
+
+#start-button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+/* Žaidėjo kortelė */
+
+#player-card {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    justify-content: end;
+    line-height: 28px;
+    background: var(--secondary);
+}
+
+#player-name, #player-role, #player-word, #player-card p {
+    background: none;
+    text-align: center;
+}
+
+.spacer {
+    flex-grow: 2;
+    background: none;
+}
+
+button {
+    background: var(--action);
+}

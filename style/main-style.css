@@ -25,6 +25,15 @@ html[theme="light"] {
     --danger: hsl(0, 100%, 70%);
 }
 
+#overlay {
+    display: none;
+    position: fixed;
+    background-color: hsla(0, 0%, 50%, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -69,5 +78,6 @@ header {
 .navigation-link > img {
     height: 14px;
     background: none;
+    filter: invert(0);
 }
 

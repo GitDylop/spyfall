@@ -17,52 +17,39 @@
     font-size: 20px;
 }
 
-
-#credits-popup {
-    opacity: 0;
-    margin-top: 50px;
-    z-index: 2;
-    pointer-events: none;
-    background: none;
-}
-
-@keyframes pop-in {
-    from {
-        margin-top: 50px;
-        opacity: 0;
-    }
-    to {
-        margin-top: 0px;
-        opacity: 1;
-    }
-}
-
-@keyframes pop-out {
-    from {
-        margin-top: 0px;
-        opacity: 1;
-    }
-
-    to {
-        margin-top: 50px;
-        opacity: 0;
-    }
-}
-
-iframe {
-    border: none;
-    border-radius: 12px;
-    max-width: 500px;
+#credits-card {
+    position: fixed;
+    width: 300px;
     height: 400px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
-    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    background: var(--base);
+    overflow: scroll;
 }
 
-#close-button {
-    background: none;
-    width: 20px;
-    margin-right: 20px;
+#credits-close {
+    width: 24px;
     display: block;
-    margin-left: auto;
-    transform: translate(0, 40px);
+    position: absolute;
+    background: none;
+    top: 10px;
+    right: 10px;
+}
+
+#credits-card h1, #credits-card p {
+    margin: 10px;
+    background: none;
+    text-align: center;
+}
+
+#jgk {
+    border-radius: 20px;
+}
+
+.htag {
+    color: hsl(50, 100%, 40%);
+    text-align: center;
 }
