@@ -82,11 +82,6 @@ button:hover {
     text-align: center;
 }
 
-.spacer {
-    flex-grow: 2;
-    background: none;
-}
-
 button {
     background: var(--action);
 }

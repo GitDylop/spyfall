@@ -15,12 +15,51 @@
     </header>
 
     <div id="content">
+      <h2>Žaidėjai</h2>
+
       <div id="player-list">
         <button id="add-player-button" onclick="add_player()">Pridėti žaidėją</button>
       </div>
 
-      <button id="start-button" onclick="prepare_game()">Pradėti</button>
+      <!-- <h2>Žodžių kategorijos</h2>
+
+      <div id="word-category-list">
+        <div class="word-category">
+          <p>TV</p>
+          <div class="spacer"></div>
+          <div class="word-badges">
+            <img src="src/images/badges/Places.svg">
+            <img src="src/images/badges/People.svg">
+            <img src="src/images/badges/Items.svg">
+          </div>
+        </div>
+      </div> -->
+
+      <button id="start-button" onclick="prepare_game(); pick_word()">Pradėti</button>
     </div>
   </body>
   <script src="script.js"></script>
+  <script>
+    async function pick_word() {
+      const response = await fetch('src/data/categories.json');
+      const myArray = await response.json();
+      const category = myArray[0].content.locations;
+
+      const randomIndex = Math.floor(Math.random() * category.length);
+      let word = category[randomIndex];
+
+      while (sessionStorage.getItem('pickedWords') && JSON.parse(sessionStorage.getItem('pickedWords')).includes(word)) {
+          const randomIndex = Math.floor(Math.random() * category.length);
+          word = category[randomIndex];
+      }
+
+      sessionStorage.setItem('currentWord', word);
+
+      let pickedWords = JSON.parse(sessionStorage.getItem('pickedWords')) || [];
+      pickedWords.push(word);
+      sessionStorage.setItem('pickedWords', JSON.stringify(pickedWords));
+
+      document.getElementById('player-word').textContent = word;
+    }
+  </script>
 </html>

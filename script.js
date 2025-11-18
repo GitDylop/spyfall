@@ -109,6 +109,6 @@ function prepare_game() {
     const spyIndex = Math.floor(Math.random() * players.length);
     players[spyIndex].role = "spy";
 
-    localStorage.setItem("game-data", JSON.stringify(players));
+    sessionStorage.setItem("game-data", JSON.stringify(players));
     navigate_to('game.html', 'to-game');
 }
