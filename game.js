@@ -1,12 +1,14 @@
 window.onload = function() {
+    pick_word();
     load_game_data();
 }
 
 function start_new_game() {
     // Check if there any words left to pick
     const pickedWords = JSON.parse(sessionStorage.getItem('pickedWords'));
-    const totalWords = 15; // TODO: Replace with actual total number of words in the category
-        
+    const customWords = JSON.parse(sessionStorage.getItem('custom-words') || "[]");
+    const totalWords = customWords.length > 0 ? customWords.length : 15;
+    
     if (pickedWords && pickedWords.length >= totalWords) {
         alert("Nėra daugiau žodžių šiai kategorijai.");
     }
