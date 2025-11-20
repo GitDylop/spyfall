@@ -21,6 +21,11 @@
         <button id="add-player-button" onclick="add_player()">Pridėti žaidėją</button>
       </div>
 
+      <div id="word-list">
+        <textarea placeholder="Įveskite žodžius, kiekvieną naujoje eilutėje (palikus tuščia bus duodami jau paruošti žodžiai)" id="word-area"></textarea>
+        <h6 style="background: none; color: hsla(40, 50%, 48%, 0.7);">laikina</h6>
+      </div>
+
       <!-- <h2>Žodžių kategorijos</h2>
 
       <div id="word-category-list">
@@ -41,25 +46,31 @@
   <script src="script.js"></script>
   <script>
     async function pick_word() {
-      const response = await fetch('src/data/categories.json');
-      const myArray = await response.json();
-      const category = myArray[0].content.locations;
-
-      const randomIndex = Math.floor(Math.random() * category.length);
-      let word = category[randomIndex];
-
-      while (sessionStorage.getItem('pickedWords') && JSON.parse(sessionStorage.getItem('pickedWords')).includes(word)) {
-          const randomIndex = Math.floor(Math.random() * category.length);
-          word = category[randomIndex];
-      }
-
-      sessionStorage.setItem('currentWord', word);
-
-      let pickedWords = JSON.parse(sessionStorage.getItem('pickedWords')) || [];
-      pickedWords.push(word);
-      sessionStorage.setItem('pickedWords', JSON.stringify(pickedWords));
-
-      document.getElementById('player-word').textContent = word;
+    const response = await fetch('src/data/categories.json');
+    let myArray = [];
+    if (sessionStorage.getItem('custom-words').length > 0) {
+        myArray = JSON.parse(sessionStorage.getItem('custom-words'));
     }
+    else {
+        const data = await response.json(); // gauni visą JSON
+        myArray = data[0].content.locations; // paimi locations
+    }
+
+    const randomIndex = Math.floor(Math.random() * myArray.length);
+    let word = myArray[randomIndex];
+
+    while (sessionStorage.getItem('pickedWords') && JSON.parse(sessionStorage.getItem('pickedWords')).includes(word)) {
+        const randomIndex = Math.floor(Math.random() * myArray.length);
+        word = myArray[randomIndex];
+    }
+
+    sessionStorage.setItem('currentWord', word);
+
+    let pickedWords = JSON.parse(sessionStorage.getItem('pickedWords')) || [];
+    pickedWords.push(word);
+    sessionStorage.setItem('pickedWords', JSON.stringify(pickedWords));
+
+    document.getElementById('player-word').textContent = word;
+}
   </script>
 </html>

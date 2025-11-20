@@ -109,15 +109,21 @@ function hide_player_card() {
 
 async function pick_word() {
     const response = await fetch('src/data/categories.json');
-    const myArray = await response.json();
-    const category = myArray[0].content.locations;
+    let myArray = [];
+    if (sessionStorage.getItem('custom-words').length > 0) {
+        myArray = JSON.parse(sessionStorage.getItem('custom-words'));
+    }
+    else {
+        const data = await response.json(); // gauni visą JSON
+        myArray = data[0].content.locations; // paimi locations
+    }
 
-    const randomIndex = Math.floor(Math.random() * category.length);
-    let word = category[randomIndex];
+    const randomIndex = Math.floor(Math.random() * myArray.length);
+    let word = myArray[randomIndex];
 
     while (sessionStorage.getItem('pickedWords') && JSON.parse(sessionStorage.getItem('pickedWords')).includes(word)) {
-        const randomIndex = Math.floor(Math.random() * category.length);
-        word = category[randomIndex];
+        const randomIndex = Math.floor(Math.random() * myArray.length);
+        word = myArray[randomIndex];
     }
 
     sessionStorage.setItem('currentWord', word);

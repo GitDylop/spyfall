@@ -3,7 +3,7 @@ function add_player() {
     const player_item = document.createElement('div');
     document.getElementById('player-list').appendChild(player_item);
     player_item.innerHTML = `
-        <input type="text" placeholder="Žaidėjo vardas" class="player-name">
+        <input type="text" name="Player" placeholder="Žaidėjo vardas" class="player-name">
         <img src="src/images/trash.svg" alt="Pašalinti žaidėją" class="remove-player" onclick="remove_player(this)">
     `;
     player_item.className = 'player-list-item'
@@ -110,5 +110,13 @@ function prepare_game() {
     players[spyIndex].role = "spy";
 
     sessionStorage.setItem("game-data", JSON.stringify(players));
+
+    if (document.getElementById('word-area').value.trim().length > 0) {
+        const customWords = document.getElementById('word-area').value.trim().split('\n').map(word => word.trim()).filter(word => word.length > 0);
+        sessionStorage.setItem('custom-words', JSON.stringify(customWords));
+    } else {
+        sessionStorage.setItem('custom-words', JSON.stringify([]));
+    }
+
     navigate_to('game.html', 'to-game');
 }
